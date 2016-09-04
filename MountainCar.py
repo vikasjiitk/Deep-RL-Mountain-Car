@@ -1,3 +1,4 @@
+import numpy as  np
 class MountainCar(object):
 
 	def __init__(self, start, goal, Xrange, Vrange):
@@ -64,8 +65,11 @@ class MountainCar(object):
         reward, game_over = self._GetReward()
         return self.observe(), reward, game_over
 
+    def observe():
+    	return self.state
+
     def reset(self):
-    	self.state = [self.start[0], self.start[1]]
+    	self.state = np.asarray([self.start[0], self.start[1]])
 
     # def BuildActionList(self):
     #     return np.array([-1.0 , 0.0 , 1.0])
