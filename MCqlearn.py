@@ -20,6 +20,7 @@ class ExperienceReplay(object):
     def get_batch(self, model, batch_size=10):
         len_memory = len(self.memory)
         num_actions = model.output_shape[-1]
+        # env_dim = self.memory[0][0][0].shape[1]
         env_dim = self.memory[0][0][0].shape[1]
         inputs = np.zeros((min(len_memory, batch_size), env_dim))
         targets = np.zeros((inputs.shape[0], num_actions))
@@ -46,17 +47,18 @@ if __name__ == "__main__":
     num_actions = 3  # [move_left, stay, move_right]
     epoch = 1000
     max_memory = 500
-    hidden_size = 100
+    hidden_size = 20
     batch_size = 50
     input_size = 2
 
     Xrange = [-1.5, 0.55]
     Vrange = [-0.7, 0.7]
     start = [-0.5, 0.0]
-    goal = [0.45]
+    goal = [0.2]
 
     model = Sequential()
-    model.add(Dense(hidden_size, input_shape=(input_size,), activation='relu'))
+    model.add(Dense(hidden_size, input_shape=(2, ), activation='relu'))
+    # model.add(Dense(hidden_size, input_shape=(2,1)))
     model.add(Dense(hidden_size, activation='relu'))
     model.add(Dense(num_actions))
     model.compile(sgd(lr=.2), "mse")
@@ -79,8 +81,11 @@ if __name__ == "__main__":
         # get initial input
         input_t = env.observe()
 
-        while not game_over:
+        max_step = 1000
+        step = 0
+        while (not game_over and step < max_step):
             input_tm1 = input_t
+            step += 1
             # get next action
             if np.random.rand() <= epsilon:
                 action = np.random.randint(0, num_actions, size=1)
@@ -100,7 +105,7 @@ if __name__ == "__main__":
             inputs, targets = exp_replay.get_batch(model, batch_size=batch_size)
 
             loss += model.train_on_batch(inputs, targets)[0]
-        print("Epoch {:03d}/999 | Loss {:.4f} | Win count {}".format(e, loss, win_cnt))
+        print("Step {} Epoch {:03d}/999 | Loss {:.4f} | Win count {}".format(step, e, loss, win_cnt))
 
     # Save trained model weights and architecture, this will be used by the visualization code
     model.save_weights("model.h5", overwrite=True)
