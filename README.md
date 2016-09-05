@@ -1,7 +1,7 @@
 ###Note: Work in progress
 #Deep RL - Mountain Car Domain
 This is my implementation of Mountain Car domain in reinforcement learning using neural network function approximation with Keras Deep Learning Library.  
-I am motivated by this simple example of Keras playin catch []()  
+I am motivated by this simple example of [Keras playing catch](https://edersantana.github.io/articles/keras_rl/)  
 My code is adapted from the above incorporated with Mountain car domain.
 
 ## DQN implementation
