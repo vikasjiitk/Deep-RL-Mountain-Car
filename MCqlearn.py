@@ -54,7 +54,7 @@ if __name__ == "__main__":
     Xrange = [-1.5, 0.55]
     Vrange = [-0.7, 0.7]
     start = [-0.5, 0.0]
-    goal = [0.2]
+    goal = [0.5]
 
     model = Sequential()
     model.add(Dense(hidden_size, input_shape=(2, ), activation='relu'))
@@ -81,9 +81,8 @@ if __name__ == "__main__":
         # get initial input
         input_t = env.observe()
 
-        max_step = 1000
         step = 0
-        while (not game_over and step < max_step):
+        while (not game_over):
             input_tm1 = input_t
             step += 1
             # get next action
