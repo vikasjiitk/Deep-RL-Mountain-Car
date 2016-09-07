@@ -33,7 +33,7 @@ Once the network is trained and parameters are saved in .json and .h5 file, test
 python MCqtest.py
 ```
 The initial state and other parameters of Mountain Car domain can be set up in this file.  
-**It is interesting to note that though the network is trained only for one initial state and one range of Mountain Car domain, it is able to generalize and success during training for arbitrary initial states and range of the domain.**
+**It is interesting to note that though the network is trained only for one initial state and one range of Mountain Car domain, it is able to generalize and success during testing for arbitrary initial states and range of the domain.**
 
 ### Dependencies
 1. Python3
