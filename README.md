@@ -1,4 +1,3 @@
-###Note: Work in progress
 #Deep RL - Mountain Car Domain
 This is my implementation of Mountain Car domain in reinforcement learning using neural network function approximation with Keras Deep Learning Library.  
 *To the best of my knowledge, this is the first opensource code for solving Mountain Car RL problem using DQN.*    
