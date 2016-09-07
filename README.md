@@ -16,7 +16,31 @@ Mountain car is standard platform for testing RL algorithms in which a underpowe
 
 The figure above (from Wikipedia) shows the problem, where car in starting position and star is the goal position.
 
+### Files
+1. MountainCar.py -- Define the class of Mountain Car environment - transition from one state to another given an action and returning reward.
+2. MCqlearn.py -- DQN implementation for Q-learning.
+3. MCtest.py -- Testing the learned policy.
+
 ### Training
+DQN is trained for 1000 successful episodes of the problem. The specific parameters of the algorithm are given in the MCqlearn.py file. To train the DQN network, symply run the training file:
+```
+python MCqlearn.py
+```
+After training, the network parameters are stored in .json and .h5 file.
+
+### Testing
+Once the network is trained and parameters are saved in .json and .h5 file, testing can be done. To test the network, run the file:
+```
+python MCqtest.py
+```
+The initial state and other parameters of Mountain Car domain can be set up in this file.  
+** It is interesting to note that though the network is trained only for one initial state and one range of Mountain Car domain, it is able to generalize and success during training for arbitrary initial states and range of the domain.**
+
+### Dependencies
+1. Python3
+2. Keras
+3. Numpy 
+
 
 
 
