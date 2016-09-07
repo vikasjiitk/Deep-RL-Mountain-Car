@@ -10,8 +10,8 @@ if __name__ == "__main__":
     # working with any parameters below, not nessecarily the parameters set during the training, it seems like neural network is able to generalize to othe initializations as well
     Xrange = [-1.5, 0.55]
     Vrange = [-0.7, 0.7]
-    start = [-0.5, 0.0]
-    goal = [0.5]
+    start = [-0.5, -0.1]
+    goal = [0.45]
 
     with open("model.json", "r") as jfile:
         model = model_from_json(json.load(jfile))

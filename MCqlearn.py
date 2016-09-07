@@ -47,14 +47,14 @@ if __name__ == "__main__":
     num_actions = 3  # [move_left, stay, move_right]
     epoch = 1000
     max_memory = 500
-    hidden_size = 20
+    hidden_size = 100
     batch_size = 50
     input_size = 2
 
     Xrange = [-1.5, 0.55]
     Vrange = [-0.7, 0.7]
     start = [-0.5, 0.0]
-    goal = [0.5]
+    goal = [0.45]
 
     model = Sequential()
     model.add(Dense(hidden_size, input_shape=(2, ), activation='relu'))
